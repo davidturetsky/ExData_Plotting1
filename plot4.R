@@ -10,6 +10,7 @@ plot4<-function(){
         dates_times<-strptime(date_time,format="%d/%m/%Y %H:%M:%S")
                 
         ## Plot of the frequency of Sub_metering
+        png(filename = 'plot4.png', width = 480, height = 480, units = 'px')
         par(mfrow=c(2,2))
         with(house_consumption,{
                 plot(dates_times,Global_active_power,xlab="",ylab="Global Active Power",type="l")
@@ -24,7 +25,7 @@ plot4<-function(){
         })
         
         ## Write to png
-        dev.copy(png, file="plot4.png", width = 480, height = 480)
+        ##dev.copy(png, file="plot4.png", width = 480, height = 480)
 
         ## Closes connection
         dev.off()
