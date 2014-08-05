@@ -11,14 +11,15 @@ plot3<-function(){
                 
         ## Plot of the frequency of Sub_metering
         ##par(mar=c(5,4,4,3))
+        png(filename = 'plot3_2.png', width = 480, height = 480, units = 'px')
         with(house_consumption,plot(dates_times,Sub_metering_1,xlab="",ylab="",type="l",col="black"))
          lines(dates_times,house_consumption$Sub_metering_2,type="l", col="red")
          lines(dates_times,house_consumption$Sub_metering_3,type="l", col="blue")                    
         title(ylab="Energy sub metering")
-        legend("topright",col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty=1)
+        legend('topright',col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty = c(1, 1), xjust=0, yjust=0, seg.len=3)
         
         ## Write to png
-        dev.copy(png, file="plot3.png", width = 480, height = 480)
+        ##dev.copy(png, file="plot3_2.png", width = 480, height = 480)
 
         ## Closes connection
         dev.off()
